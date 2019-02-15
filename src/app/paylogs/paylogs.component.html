@@ -1,0 +1,28 @@
+<div *ngIf="payLogs" class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center" >
+  <table class="table table-bordered" style="align-content: center">
+    <thead class="thead-dark ">
+      <tr>
+        <th *ngFor="let h of displayColumns">{{h}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let log of payLogs">
+        <td scope="col">{{log.id}}</td>
+        <td scope="col">{{log.txnId}}</td>
+        <td scope="col">{{log.fromUser}}</td>
+        <td scope="col">{{log.toUser}}</td>
+        <td scope="col">{{log.amount}}</td>
+        <td scope="col">{{log.status}}</td>
+        <td scope="col">{{log.createdAt}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="!payLogs" class="table table-bordered">
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <h3>Nothing is there to show</h3>
+  </div>
+</div>
+<!--
+  
+  -->

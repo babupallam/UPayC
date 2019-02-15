@@ -1,0 +1,33 @@
+
+.navbar {
+    padding: 10px;
+    margin-bottom: 20px;
+
+    .bwm-search {
+      height: 50px;
+      width: 300px;
+    }
+  
+    .navbar-brand {
+      font-size: 25px;
+      letter-spacing: 1px;
+      color:#212121;
+      font-weight: 1000;
+    }
+  
+    .nav-item {
+      font-size: 14px;
+    }
+  
+    .btn-bwm-search {
+      border-color: #f43636;
+      color: #f43636;
+      &:hover, &:focus, &:active {
+        background-color: transparent;
+        border-color: #f43636 !important;
+        color: #f43636 !important;
+        box-shadow: none;
+      }
+    }
+}
+

@@ -1,0 +1,126 @@
+
+
+<div class="container">
+  <div class="py-8 text-center">
+    <img class="d-block mx-auto mb-4" src="/assets/images/logo.png" alt="" width="72" height="72">
+    <h2>Save Your Card</h2>
+  </div>
+  <div class="register">
+    <form class="needs-validation" #registerForm="ngForm">
+      <h4 class="mb-3">User Details</h4>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="firstName">First name</label>
+          <input [(ngModel)]="regDetails.user.firstName" type="text" class="form-control" id="firstName"
+            name="firstName" required #firstName="ngModel">
+          <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger"> *required</div>
+          <small class="text-muted">Name as displayed on card</small>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Last name</label>
+          <input [(ngModel)]="regDetails.user.lastName" type="text" class="form-control" id="lastName" name="lastName"
+            required #lastName="ngModel">
+          <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger"> *required</div>
+          <small class="text-muted">Name as displayed on card</small>
+
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="address">Address</label>
+        <input type="text" [(ngModel)]="regDetails.user.line1" class="form-control" id="line1" name="line1"
+          placeholder="House No, House Name, Main St" required>
+      </div>
+
+      <div class="mb-3">
+        <input type="text" [(ngModel)]="regDetails.user.line2" class="form-control" id="line2" name="line2"
+          placeholder="Post Office" required>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label for="state">State</label>
+          <select class="custom-select d-block w-100 form-control" [(ngModel)]="regDetails.user.line3" id="state"
+            name="state" required>
+            <option *ngFor="let state of State" [value]="state">{{state}}</option>
+          </select>
+        </div>
+        <div class="col-md-5 mb-3">
+          <label for="country">Country</label>
+          <select class="custom-select d-block w-100 form-control" [(ngModel)]="regDetails.user.line4" id="country"
+            name="country" required>
+            <option selected value="India">India</option>
+          </select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="zip">Pin code</label>
+          <input type="text" [(ngModel)]="regDetails.user.line5" class="form-control" id="zip" name="zip" placeholder=""
+            required>
+        </div>
+      </div>
+      <h4 class="mb-3">Card Details</h4>
+
+      <div class="row">
+        <div class="col-md-9 mb-3">
+          <label for="cc-number">Card number</label>
+          <input type="text" [(ngModel)]="regDetails.cre.cardNo" class="form-control" id="cc-number" name="cc-number"
+            placeholder="" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <label for="cc-expiration">Month of expiration<i class="fa fa-yahoo" aria-hidden="true"></i></label>
+          <select class="form-control" [(ngModel)]="regDetails.cre.cardExpiryMonth" id="cc-month" name="cc-month" required>
+            <option selected>Select Month</option>
+            <option value="01">January</option>
+            <option value="02">February </option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="cc-expiration">Year of expiration</label>
+          <select class="form-control" [(ngModel)]="regDetails.cre.cardExpiryYear" id="cc-year" name="cc-year" required>
+            <option value="Year" disabled> Year</option>
+            <option value="2018"> 2018</option>
+            <option value="2019"> 2019</option>
+            <option value="2020"> 2020</option>
+            <option value="2021"> 2021</option>
+            <option value="2022"> 2022</option>
+            <option value="2023"> 2023</option>
+            <option value="2024"> 2024</option>
+            <option value="2025"> 2025</option>
+          </select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="cc-expiration">Card Verification Value</label>
+          <input type="text" class="form-control" [(ngModel)]="regDetails.cre.cardVerificationValue" id="cc-cvv"
+            name="cc-cvv" required>
+
+        </div>
+      </div>
+      <hr class="mb-3">
+      -->
+      <div class="form-group col-md-5 mx-auto my-5 spinner">
+        <button class="btn btn-primary btn-lg btn-block" 
+          [disabled]="!registerForm.form.valid" 
+          (click)="regNewUser()"
+          type="submit">Save</button>
+      </div>
+      <div *ngIf="errors.length > 0" class="alert alert-danger">
+        <p *ngFor="let error of errors">
+          {{error.detail}}
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
+<ngx-spinner><p style="color: white" > Transaction is being processed</p></ngx-spinner>

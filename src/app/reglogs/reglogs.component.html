@@ -1,0 +1,30 @@
+<div *ngIf="regLogs" class="position-relative">
+  <table class="table table-bordered" style="align-content: center">
+    <thead class="thead-dark ">
+      <tr>
+        <th *ngFor="let h of displayColumns">{{h}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let log of regLogs">
+        <td scope="col">{{log.id}}</td>
+        <td scope="col">{{log.customerName}}</td>
+        <td scope="col">{{log.accountId}}</td>
+        <td scope="col">{{log.address.line1}}<br>{{log.address.line2}}<br>{{log.address.line3}}</td>
+        <td scope="col">{{log.balance}}</td>
+        <td scope="col">{{log.cardNo}}</td>
+        <td scope="col">{{log.cardExpiryMonth}}</td>
+        <td scope="col">{{log.cardExpiryYear}}</td>
+        <td scope="col">{{log.cardVerificationValue}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="!regLogs" class="table table-bordered">
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <h3>Nothing is there to show</h3>
+  </div>
+</div>
+<!--
+
+-->
