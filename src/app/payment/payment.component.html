@@ -15,17 +15,18 @@
                 </div>
                 <div class="form-group owner">
                     <label for="cardNumber">Card Number</label>
-                    <input type="text" [(ngModel)]="txnDetails.credentials.cardNo" class="form-control" name="cardNumber"
-                        required>
+                    <input type="text" [(ngModel)]="txnDetails.credentials.cardNo" class="form-control"
+                        name="cardNumber" required>
                 </div>
                 <div class="form-group CVV">
                     <label for="cvv">CVV</label>
-                    <input type="text" [(ngModel)]="txnDetails.credentials.cardVerificationValue" class="form-control" id="cvv"
-                        name="cardVerificationValue" required>
+                    <input type="text" [(ngModel)]="txnDetails.credentials.cardVerificationValue" class="form-control"
+                        id="cvv" name="cardVerificationValue" required>
                 </div>
                 <div class="form-group" id="expiration-date">
                     <label>Expiration Date</label>
-                    <select [(ngModel)]="txnDetails.credentials.cardExpiryMonth" id="cc-month" name="cardExpiryMonth" required>
+                    <select [(ngModel)]="txnDetails.credentials.cardExpiryMonth" id="cc-month" name="cardExpiryMonth"
+                        required>
                         <option value="Month" disabled>Month</option>
                         <option value="01">January</option>
                         <option value="02">February </option>
@@ -40,7 +41,8 @@
                         <option value="11">November</option>
                         <option value="12">December</option>
                     </select>
-                    <select [(ngModel)]="txnDetails.credentials.cardExpiryYear" id="cc-year" name="cardExpiryYear" required>
+                    <select [(ngModel)]="txnDetails.credentials.cardExpiryYear" id="cc-year" name="cardExpiryYear"
+                        required>
                         <option value="Year" disabled> Year</option>
                         <option value="2018"> 2018</option>
                         <option value="2019"> 2019</option>
@@ -56,7 +58,7 @@
                     <img src="assets/images/visa.jpg" id="visa">
                     <img src="assets/images/mastercard.jpg" id="mastercard">
                 </div>
-                <div class="form-group" id="pay-now">
+                <div class="form-group spinner" id="pay-now">
                     <button type="submit" class="btn btn-default" [disabled]="!txnForm.form.valid" (click)="txnSubmit()"
                         id="confirm-purchase">Confirm</button>
                 </div>
@@ -64,4 +66,7 @@
         </div>
     </div>
 </div>
-{{txnDetails| json}}
+
+<ngx-spinner>
+    <p style="color: white"> Transaction is being processed</p>
+</ngx-spinner>

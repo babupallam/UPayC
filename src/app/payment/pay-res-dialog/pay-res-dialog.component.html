@@ -1,0 +1,31 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 text-center mx-auto text-center">
+    <h1 class="display-4">Transaction Details</h1>
+</div>
+<table class="table mx-auto">
+    <tbody>
+      <tr>
+        <th scope="row">Transaction Id</th>
+        <td>{{txnDetails.paymentId}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Debited Account</th>
+        <td>{{txnDetails.fromAccount.customerName}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Credited Account</th>
+        <td>{{txnDetails.toAccount.customerName}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Amount Transferred</th>
+        <td>{{txnDetails.amount}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Status</th>
+        <td>{{txnDetails.status}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Timestamp</th>
+        <td *ngIf="txnDetails.timestamp">{{txnDetails.timestamp}}</td>
+      </tr>
+    </tbody>
+  </table>

@@ -8,24 +8,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
-import { PaymentComponent } from './payment/payment.component';
 import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
-import {PaylogsComponent} from './paylogs/paylogs.component'
 import { NgxSpinnerModule } from 'ngx-spinner';
-import {AppService} from './App.service';
-import { ReglogsComponent } from './reglogs/reglogs.component';
 
+import {AppService} from './App.service';
+import {DataService} from './provider/data.service'
+
+import {PaymentModule} from './payment/payment.module';
+import {RegisterModule} from './register/register.module';
+import { ErrorComponent } from './error/error.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    PaymentComponent,
     HomeComponent,
-    RegisterComponent,
-    PaylogsComponent,
-    ReglogsComponent,
+    ErrorComponent,
   ],  
   imports: [
     BrowserModule,
@@ -34,9 +32,11 @@ import { ReglogsComponent } from './reglogs/reglogs.component';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    PaymentModule,
+    RegisterModule
   ],
-  providers: [AppService],
+  providers: [AppService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

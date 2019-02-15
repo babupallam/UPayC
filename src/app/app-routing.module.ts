@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {PaymentComponent} from './payment/payment.component';
 import {HomeComponent} from './home/home.component';
-import {RegisterComponent} from './register/register.component';
-import { PaylogsComponent } from './paylogs/paylogs.component';
-import {ReglogsComponent} from './reglogs/reglogs.component';
+import {ErrorComponent} from './error/error.component'
+import {PaymentModule} from './payment/payment.module';
+import {RegisterModule} from './register/register.module';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent}, 
-  {path:'pay', component: PaymentComponent},
-  {path:'register', component: RegisterComponent},
-  {path:'reglogs', component: ReglogsComponent},
-  {path:'paylogs', component: PaylogsComponent}
+  {path: 'home', component: HomeComponent},
+  {path:'**', component: ErrorComponent} 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    PaymentModule,
+    RegisterModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

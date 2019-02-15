@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AppService } from '../App.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {Router, NavigationExtras } from '@angular/router';
+import {DataService} from '../provider/data.service';
 
 @Component({
   selector: 'app-payment',
@@ -8,6 +10,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
+  /*txnDetails: any ={}*/
   txnDetails: any = {
     metaData: {
       toAccount: '76ad4930-3047-11e9-892c-59218f25ed44', //from site
@@ -27,7 +30,9 @@ export class PaymentComponent implements OnInit {
 
   constructor(
     private txnService: AppService,
-    private spinner: NgxSpinnerService, ) { }
+    private spinner: NgxSpinnerService,
+    private router: Router,
+    private data: DataService) { }
 
   ngOnInit() {
   }
@@ -36,7 +41,11 @@ export class PaymentComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.txnResponse = data;
-          this.spinner.show(); setTimeout(() => { this.spinner.hide(); }, 2000);
+          this.spinner.show(); setTimeout(() => { 
+            this.spinner.hide();
+            this.data.txnDetails = this.txnResponse;
+            this.router.navigate(['res']);
+          }, 2000);
          // console.log(this.txnResponse)
         },
         (errorResponce) => {
