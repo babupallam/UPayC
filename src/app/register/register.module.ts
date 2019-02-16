@@ -7,10 +7,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { ReglogsComponent } from './reglogs/reglogs.component';
 import { RegisterComponent } from './register.component';
-
+import {RegReceiptComponent} from './reg-receipt/reg-receipt.component'
 
 const routes: Routes = [
     {path:'register', component: RegisterComponent},
+    {path:'receipt', component:RegReceiptComponent},
     {path:'reglogs', component: ReglogsComponent},
 ]
 
@@ -20,7 +21,8 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         HttpClientModule,
         FormsModule,
-        NgxSpinnerModule
+        NgxSpinnerModule,
+        
     ],
     exports: [
         RouterModule
@@ -28,6 +30,7 @@ const routes: Routes = [
     declarations: [
         RegisterComponent,
         ReglogsComponent,
+        RegReceiptComponent
     ],
     providers: [
     ]

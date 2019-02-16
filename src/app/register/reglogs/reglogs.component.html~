@@ -8,7 +8,6 @@
     <tbody>
       <tr *ngFor="let log of regLogs">
         <td scope="col">{{log.id}}</td>
-        <td scope="col">{{log.createdAt}}</td>
         <td scope="col">{{log.customerName}}</td>
         <td scope="col">{{log.accountId}}</td>
         <td scope="col">{{log.address.line1}}<br>{{log.address.line2}}<br>{{log.address.line3}}</td>

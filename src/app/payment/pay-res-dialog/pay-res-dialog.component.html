@@ -8,16 +8,16 @@
         <td>{{txnDetails.paymentId}}</td>
       </tr>
       <tr>
-        <th scope="row">Debited Account</th>
-        <td>{{txnDetails.fromAccount.customerName}}</td>
+        <th scope="row">Debited Account Details</th>
+        <td>{{txnDetails.fromAccount.customerName}}: {{txnDetails.fromAccount.accountId}}</td>
       </tr>
       <tr>
         <th scope="row">Credited Account</th>
-        <td>{{txnDetails.toAccount.customerName}}</td>
+        <td>{{txnDetails.toAccount.customerName}}: {{txnDetails.toAccount.accountId}}</td>
       </tr>
       <tr>
         <th scope="row">Amount Transferred</th>
-        <td>{{txnDetails.amount}}</td>
+        <td>{{txnDetails.amount.currency}} {{txnDetails.amount.amount}}</td>
       </tr>
       <tr>
         <th scope="row">Status</th>

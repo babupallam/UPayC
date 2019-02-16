@@ -7,7 +7,7 @@ import { AppService } from '../../App.service';
   styleUrls: ['./reglogs.component.scss']
 })
 export class ReglogsComponent implements OnInit {
-  displayColumns: string[] = ['#', 'Created At', 'Customer Name', 'Account Number', 'Balance', 'Address', 'Card Number', 'Card Expiry Month', 'Card Expiry Year', 'CVV'];
+  displayColumns: string[] = ['#', 'Created At','Customer Name', 'Account Number', 'Balance', 'Address', 'Card Number', 'Card Expiry Month', 'Card Expiry Year', 'CVV'];
   error: any;
   /*  payLogs: any = [
       {

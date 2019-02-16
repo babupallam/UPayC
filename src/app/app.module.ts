@@ -17,6 +17,8 @@ import {DataService} from './provider/data.service'
 import {PaymentModule} from './payment/payment.module';
 import {RegisterModule} from './register/register.module';
 import { ErrorComponent } from './error/error.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,

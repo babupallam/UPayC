@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../App.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
+import {Router, NavigationExtras } from '@angular/router';
+import {DataService} from '../provider/data.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,7 +14,9 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private registrationService: AppService,
-    private spinner: NgxSpinnerService, ) { }
+    private spinner: NgxSpinnerService,
+    private router: Router,
+    private data: DataService ) { }
 
 
   State = [
@@ -19,7 +24,7 @@ export class RegisterComponent implements OnInit {
     'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab',
     'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttarakhand', 'Uttar Pradesh', 'West Bengal'
   ];
-  regDetails: any = { "user": { "balance": 1000, "firstName": "babu", "lastName": "pallam", "line1": "pallam", "line2": "pulamanthole", "line3": "Kerala", "line4": "India", "line5": "679323" }, "cre": { "cardNo": "8898678945678765", "cardExpiryMonth": "04", "cardExpiryYear": "19", "cardVerificationValue": "344" } }
+  regDetails: any = { "user": { "balance": 1000, "firstName": "babu", "lastName": "pallam", "line1": "pallam", "line2": "pulamanthole", "line3": "Kerala", "line4": "India", "line5": "679323" }, "cre": { "cardNo": "8898678945678765", "cardExpiryMonth": "04", "cardExpiryYear": "2019", "cardVerificationValue": "344" } }
   /*  regDetails: any = {
       "user": { "balance": 1000 },
       "cre": {}
@@ -37,10 +42,15 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.regResponse = data; 
-          this.spinner.show(); setTimeout(() => { this.spinner.hide(); }, 2000);
+          this.spinner.show(); 
+          setTimeout(() => { 
+            this.spinner.hide(); 
+            this.data.regDetails = this.regResponse;
+            this.router.navigate(['receipt']);
+          }, 2000);
         },
-        (errorResponce) => {
-          console.log("errorResponce");
+        (errorResponse) => {
+          console.log(errorResponse);
         }
       );
   }

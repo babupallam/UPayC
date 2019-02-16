@@ -13,15 +13,15 @@ export class PaymentComponent implements OnInit {
   /*txnDetails: any ={}*/
   txnDetails: any = {
     metaData: {
-      toAccount: '76ad4930-3047-11e9-892c-59218f25ed44', //from site
-      customerName: 'A',
+      toAccount: '81600001', //from site
+      customerName: 'babu pallam',
       amount: 225 //from site
     },
     credentials: {
-      cardNo: '4632885445769070',
-      cardExpiryMonth: '06',
-      cardExpiryYear: '2022',
-      cardVerificationValue: '100'
+      cardNo: '8898678945678766',
+      cardExpiryMonth: '04',
+      cardExpiryYear: '2019',
+      cardVerificationValue: '300'
     }
   };
 
@@ -34,6 +34,7 @@ export class PaymentComponent implements OnInit {
     private router: Router,
     private data: DataService) { }
 
+    
   ngOnInit() {
   }
   txnSubmit() {

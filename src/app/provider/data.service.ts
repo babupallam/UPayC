@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   public txnDetails: any;
+  public regDetails: any;
 
   constructor() { }
 }
