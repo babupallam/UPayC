@@ -17,7 +17,9 @@ import {DataService} from './provider/data.service'
 import {PaymentModule} from './payment/payment.module';
 import {RegisterModule} from './register/register.module';
 import { ErrorComponent } from './error/error.component';
-
+import {NgxPrintModule} from 'ngx-print';
+import {WALLETModule} from './Wallet/Wallet.module';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { ErrorComponent } from './error/error.component';
     FooterComponent,
     HomeComponent,
     ErrorComponent,
+    TestComponent,
   ],  
   imports: [
     BrowserModule,
@@ -36,7 +39,9 @@ import { ErrorComponent } from './error/error.component';
     CommonModule,
     NgxSpinnerModule,
     PaymentModule,
-    RegisterModule
+    RegisterModule,
+    NgxPrintModule,
+    WALLETModule
   ],
   providers: [AppService,DataService],
   bootstrap: [AppComponent]

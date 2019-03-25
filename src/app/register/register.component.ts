@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
     'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab',
     'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttarakhand', 'Uttar Pradesh', 'West Bengal'
   ];
-  regDetails: any = { "user": { "balance": 1000, "firstName": "babu", "lastName": "pallam", "line1": "pallam", "line2": "pulamanthole", "line3": "Kerala", "line4": "India", "line5": "679323" }, "cre": { "cardNo": "8898678945678765", "cardExpiryMonth": "04", "cardExpiryYear": "2019", "cardVerificationValue": "344" } }
+  regDetails: any = { "user": { "balance": 1000, "firstName": "", "lastName": "", "line1": "M.Tech", "line2": "CSED, MNNIT Allahabad", "line3": "Uttar Pradesh", "line4": "India", "line5": "211004" }, "cre": { "cardNo": "8000800080008000", "cardExpiryMonth": "04", "cardExpiryYear": "2019", "cardVerificationValue": "300" } }
   /*  regDetails: any = {
       "user": { "balance": 1000 },
       "cre": {}
@@ -50,7 +50,10 @@ export class RegisterComponent implements OnInit {
           }, 2000);
         },
         (errorResponse) => {
-          console.log(errorResponse);
+          this.errors.push(
+           errorResponse
+          )
+          console.log(this.errors);
         }
       );
   }

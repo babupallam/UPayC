@@ -1,0 +1,107 @@
+<div class="wallet row mb-2">
+  <div class="col-md-12">
+    <div>
+      <div class="card mx-2">
+        <div class="card-header row mx-1">
+          <div class="col-md-2 w-100 float-left">
+            <a class="btn btn-secondary alert-secondary " [routerLink]="[ '/wallet']">Back
+              Cash</a>
+          </div>
+          <div class="col-md-10 mx-auto w-100 text-center">
+            <span class="text-primary"> Transfer Cash</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row mx-1">
+  <div class="col-md-12">
+    <nav>
+      <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+          aria-controls="nav-home" aria-selected="true">To Other Wallet</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+          aria-controls="nav-profile" aria-selected="false">To Other Accounts</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <!--    From Other Wallet-->
+      <div class="tab-pane fade show active row mx-1 w-80" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="table table-bordered col-md-12 p-5">
+          <form>
+            <div class="form-group row p-2">
+              <div class="col-md-4"><label for="accountNo">Account No.</label></div>
+              <div class="col-md-8">
+                <input type="number" class="form-control" id="accountNo" aria-describedby="emailHelp" placeholder="">
+              </div>
+            </div>
+            <div class="form-group row p-2">
+              <div class="col-md-4"><label for="accountName">Account Holder Name</label></div>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="accountName" placeholder="">
+              </div>
+            </div>
+            <div class="form-group row p-2">
+              <div class="col-md-4"><label for="amount">Amount</label></div>
+              <div class="col-md-6">
+                <input type="number" class="form-control" id="amount" placeholder="">
+              </div>
+              <div class="col-md-2">
+                <input type="text" class="form-control" id="amount" value="INR" disabled>
+              </div>
+            </div>
+            <div class="p-4">
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Add Cash</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!--    Netbanking-->
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="table table-bordered">
+          <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+            <h3>Disabled in Prototype</h3>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<!--
+
+
+    <div class="wallet row mb-2">
+  <div class="col-md-12">
+    <div>
+      <div class="card mx-2">
+        <div class="card-header row mx-1">
+          <div class="col-md-2 w-100 float-left">
+            <a class="btn btn-secondary alert-secondary " [routerLink]="[ '/wallet']">Back
+              Cash</a>
+          </div>
+          <div class="col-md-10 mx-auto w-100 text-center">
+            <span class="text-primary"> Add Cash to The Wallet</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="col-md-4 mx-auto btn-group-vertical w-100 float-left" role="group">
+            <a class="btn btn-outline-secondary alert-secondary p-5 float-left" >From Other Wallet</a>
+            <a class="btn btn-outline-secondary alert-secondary p-5 float-left" >NetBanking</a>
+            <a class="btn btn-outline-secondary alert-secondary p-5 float-left" >Debit/Credit Cards</a>
+          </div>
+            <div class="col-md-8">
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->

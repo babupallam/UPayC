@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { PayResDialogComponent } from './pay-res-dialog/pay-res-dialog.component';
-
 const paymentRoutes: Routes = [
     { path: 'pay', component: PaymentComponent},
     { path: 'res', component: PayResDialogComponent},

@@ -1,0 +1,71 @@
+<div class="wallet row mb-2">
+  <div class="col-md-12">
+    <div>
+      <div class="card mx-2">
+        <div class="card-header row mx-1">
+          <div class="col-md-8">
+            <h5 class="card-title">Wallet Details: </h5>
+            <div class="card-text">
+              <div class="row">
+                <div class="col-md-4"><span class="text-primary">Account Holder Name:</span></div>
+                <div class="col-md-8" id="amount"><span class="text-danger">{{userWallet.customerName}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-md-4"><span class="text-primary">Account No.</span></div>
+                <div class="col-md-8" id="status"><span class="text-danger">{{userWallet.accountId}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-md-4"><span class="text-primary">Balance </span></div>
+                <div class="col-md-8" id="status"><span class="text-danger">{{userWallet.balance}}</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mx-auto btn-group-vertical w-100 float-right" role="group">
+            <a class="btn btn-outline-secondary alert-secondary p-2 float-right" (click)="logOut()">Sign Out</a>
+            <a class="btn btn-outline-secondary alert-secondary p-2 float-right" [routerLink]="[ '/transferC']">Transfer
+              Cash</a>
+            <a class="btn btn-outline-secondary alert-secondary p-2 float-right" [routerLink]="[ '/transferC']">Transfer
+              Cash</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-header row mx-1">
+            Payment History
+          </div>
+
+          <div *ngIf="payLogs" class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+            <table class="table table-bordered" style="align-content: center">
+              <thead class="thead-dark ">
+                <tr>
+                  <th *ngFor="let h of displayColumns">{{h}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let log of payLogs">
+                  <!-- <td scope="col">{{log.id}}</td>-->
+                  <td scope="col">{{log.txnId}}</td>
+                  <td scope="col">{{log.fromUser}}</td>
+                  <td scope="col">{{log.toUser}}</td>
+                  <td scope="col">{{log.amount}}</td>
+                  <td scope="col">{{log.status}}</td>
+                  <td scope="col">{{log.createdAt}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div *ngIf="!payLogs" class="table table-bordered">
+            <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+              <h3> Payment transactions has not been done yet</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<ngx-spinner>
+    <p style="color: white"> Signing Out...</p>
+  </ngx-spinner>

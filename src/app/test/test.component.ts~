@@ -1,0 +1,82 @@
+import { Component, OnInit } from '@angular/core';
+
+import { NgxSpinnerService } from 'ngx-spinner';
+import { DataService } from '../provider/data.service';
+import {serverURL} from './../../environments/environment'
+
+
+import {
+  HttpClientJsonpModule,
+  HttpClientModule,
+  HttpClient
+
+} from "@angular/common/http";
+import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
+import { Observable } from 'rxjs';
+
+@Component({
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.scss']
+})
+export class TestComponent implements OnInit {
+  configUrl = serverURL.specificAppURL;
+  txnDetails: any;
+  invoice: any; /*= {
+    "paymentId": "xxx-xxxx-xxx",
+    "fromAccount": { "customerName": "xxx", "accountId": "xxxx" },
+    "toAccount": { "customerName": "xxx", "accountId": "xxxx" },
+    "amount": { "amount": "xxxx", "currency": "&#8377" },
+    "status": false,
+    "timestamp": "xxxx-xx-xxx"
+  };*/
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private data: DataService
+  ) { }
+
+  ngOnInit() {
+    /* this.route.params.subscribe(params => {
+       console.log(params);
+     });
+     console.log(this.route.snapshot.data)
+     console.log(this.route.queryParams)
+     *//*
+     receivedData = {
+      toAccount: 'EC_ACCOUNT_NO',
+      customerName: 'CUSTOMER_NAME',
+      amount: 1000,
+      redirectionLink: "http:\\=======.==\...."
+     }
+   */
+    this.loadResponse();
+  }
+
+  loadResponse() {
+    var receivedData
+    this.route.queryParams.subscribe((params) => {
+      receivedData = params['txn'];
+      if (receivedData) {
+        receivedData = window.atob(receivedData);
+        receivedData = JSON.parse(receivedData);
+        this.invoice = receivedData;
+      }
+    })
+  }
+
+  payNow() {
+    this.txnDetails = {
+      toAccount: '81600016',
+      accountHolderName: 'ONDOOR NORTH',
+      amount: 500,
+      redirectionLink: "http://localhost:4200/test"
+    }
+    var b = window.btoa(JSON.stringify(this.txnDetails));
+    console.log(b) // output eyJhIjoiZm9vIiwiYiI6WzEsMiwzXSwiZyI6eyJxIjoiODc5OCJ9fQ
+    // restore b again 
+    console.log(JSON.parse(window.atob(b)));
+    window.location.href = this.configUrl+'/pay/?txn='+ b;
+  }
+}

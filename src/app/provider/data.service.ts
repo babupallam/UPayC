@@ -7,6 +7,8 @@ export class DataService {
 
   public txnDetails: any;
   public regDetails: any;
+  public txnResponse: any;
+  public userDetails: any;
 
   constructor() { }
 }

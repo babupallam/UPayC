@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="card-header">
+    Test Link to UPay
+  </div>
+  <div class="card-body text-center">
+    <!--	<a href="http://localhost:4200/pay/">Pay Now</a> -->
+    <button type="button" class="btn btn-primary" (click)="payNow()">Pay Now</button>
+  </div>
+</div>
+
+
+<div class="card ">
+  <div class="card-header">
+    Test Response from UPay
+  </div>
+  <div class="card-body text-left" *ngIf="invoice">
+    <div class="row">
+      <div class="col-md-6"> <span class="text-primary">Payment Id: </span></div>
+      <div class="col-md-6" id="paymentId">{{invoice.paymentId}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6"><span class="text-primary">Debited Account No:</span></div>
+      <div class="col-md-6" id="fromAccount">
+        "Customer Name: " {{ invoice.fromAccount.customerName}}
+        "Account No: " {{invoice.fromAccount.accountId}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6"> <span class="text-primary">Credited Account No:</span></div>
+      <div class="col-md-6" id="toAccount">
+        "Customer Name: " {{ invoice.toAccount.customerName}}
+        "Account No: " {{invoice.toAccount.accountId}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6"><span class="text-primary">Amount Transferred:</span></div>
+      <div class="col-md-6" id="amount">{{invoice.amount.currency}} {{invoice.amount.amount}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6"><span class="text-primary">Status:</span></div>
+      <div class="col-md-6" id="status">{{invoice.status}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6"><span class="text-primary">Timestamp:</span></div>
+      <div class="col-md-6" id="timestamp">{{invoice.timestamp}}</div>
+    </div>
+  </div>
+  <div class="card-body text-center" *ngIf="!invoice">
+    No Response
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Move to Wallet
+  </div>
+  <div class="card-body text-center">
+    <button type="button" class="btn btn-primary" [routerLink]="[ '/login']">Move to Wallet</button>
+  </div>
+</div>

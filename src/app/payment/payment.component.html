@@ -1,7 +1,6 @@
 <div class="container-fluid">
 
     <div class="creditCardForm">
-
         <div class="payment">
             <form class="needs-validation" #txnForm="ngForm">
                 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
@@ -9,15 +8,16 @@
                 </div>
                 <div class="form-group" id="card-number-field">
                     <label for="owner">Customer Name</label>
-                    <input type="text" [(ngModel)]="txnDetails.metaData.customerName" class="form-control"
+                    <input type="text" [(ngModel)]="txnDetails.credentials.customerName" class="form-control"
                         name="cardName" id="owner" required>
                     <small class="text-muted">Name as displayed on card</small>
                 </div>
                 <div class="form-group owner">
                     <label for="cardNumber">Card Number</label>
-                    <input type="text" [(ngModel)]="txnDetails.credentials.cardNo" class="form-control"
+                    <input type="text" [(ngModel)]="txnDetails.credentials.cardNo" class="form-control" 
                         name="cardNumber" required>
                 </div>
+
                 <div class="form-group CVV">
                     <label for="cvv">CVV</label>
                     <input type="text" [(ngModel)]="txnDetails.credentials.cardVerificationValue" class="form-control"
@@ -27,7 +27,7 @@
                     <label>Expiration Date</label>
                     <select [(ngModel)]="txnDetails.credentials.cardExpiryMonth" id="cc-month" name="cardExpiryMonth"
                         required>
-                        <option value="Month" disabled>Month</option>
+                        <option value="" selected disabled hidden>Month</option>
                         <option value="01">January</option>
                         <option value="02">February </option>
                         <option value="03">March</option>
@@ -43,7 +43,7 @@
                     </select>
                     <select [(ngModel)]="txnDetails.credentials.cardExpiryYear" id="cc-year" name="cardExpiryYear"
                         required>
-                        <option value="Year" disabled> Year</option>
+                        <option value="" selected disabled hidden> Year</option>
                         <option value="2018"> 2018</option>
                         <option value="2019"> 2019</option>
                         <option value="2020"> 2020</option>
